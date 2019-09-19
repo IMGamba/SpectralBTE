@@ -35,7 +35,7 @@ double C_1 = (1.602e-38) / (4.0 * M_PI * 8.854e-12 * 9.109e-31 );
 
 double ghat_theta(double theta, void* args) {
   struct integration_args intargs = *((struct integration_args *)args);
-	// I_3,1 = \int_\sqrt(\theta_m)^\pi ghat_theta dth
+	// I_3,1 = \int_\sqrt(\theta_m)^\pi ghat_theta dth   - from jeff on "IntegrationInMPICollRoutines.png" Sept_19-2019 
   /*
     Just to remind ourselves...
   double arg0; //zetalen
@@ -138,7 +138,7 @@ double ghat_r(double r, void* args) {
 
   F_ph.params = &intargs;
 
- // I_2 = \int_0^\pi F_ph dph
+ // I_2 = \int_0^\pi F_ph dph    from jeff on "IntegrationInMPICollRoutines.png" Sept_19-2019 
   int status;
   status = gsl_integration_qag(&F_ph,0,M_PI,1e-6,1e-6,6,1000,intargs.w_ph,&result,&error);
   if (status == GSL_EMAXITER) {
